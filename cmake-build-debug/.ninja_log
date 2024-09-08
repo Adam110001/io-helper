@@ -1,0 +1,8 @@
+# ninja log v5
+0	35	1725785328944759404	build.ninja	3f7e2697b01af50f
+35	66	1725785201789397018	IOHelper	4b19520d8d58b32
+2	34	1725785338022087657	CMakeFiles/io-helper.dir/GeneralHelpers/Options.c.o	b878c33b26605024
+2	37	1725785338024464879	CMakeFiles/io-helper.dir/GeneralHelpers/SignalHandlers.c.o	ec4ba929977c7c10
+1	89	1725785338075820813	CMakeFiles/io-helper.dir/main.c.o	776631a55761ae4e
+1	89	1725785338076373015	CMakeFiles/io-helper.dir/USB/USBHandler.c.o	7221354ce0e6cf03
+89	121	1725785338107850350	io-helper	ee4cb58c1f912ae8

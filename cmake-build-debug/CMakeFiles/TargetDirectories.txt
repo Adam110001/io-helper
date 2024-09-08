@@ -1,0 +1,3 @@
+/Users/adamdovciak/CLionProjects/io-helper/cmake-build-debug/CMakeFiles/io-helper.dir
+/Users/adamdovciak/CLionProjects/io-helper/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/adamdovciak/CLionProjects/io-helper/cmake-build-debug/CMakeFiles/rebuild_cache.dir
