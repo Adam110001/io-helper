@@ -27,6 +27,10 @@ struct USBDefinition {
     USBType usbType;
 };
 
+struct sigaction currentUSBSIGInterruptAction;
+
+struct sigaction currentUSBSIGTerminationAction;
+
 int detectUSB();
 
 void usbDeviceAdded(void *refCon, io_iterator_t iterator);

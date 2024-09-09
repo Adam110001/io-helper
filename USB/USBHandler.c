@@ -4,25 +4,37 @@
 
 #include "USBHandler.h"
 
+#include "../GeneralHelpers/SignalHandlers.h"
+
+void sigintHandlerUSB(const int signum) {
+    signal(signum, SIG_DFL);
+    if (signum == SIGINT) {
+        printf("Handler 2: Caught SIGINT (signal %d)\n", signum);
+    } else if (signum == SIGTERM) {
+        printf("Handler 2: Caught SIGTERM (signal %d)\n", signum);
+    }
+    exit(1);
+}
+
 int detectUSB() {
-    CFMutableDictionaryRef matchingDict = IOServiceMatching(kIOUSBDeviceClassName);
-    if (!matchingDict) {
+    const CFMutableDictionaryRef matchingDict = IOServiceMatching(kIOUSBDeviceClassName);
+    if (matchingDict == NULL) {
         printf("Error: kIOUSBDeviceClassName");
         exit(-2);
-    } else {
-        CFRetain(matchingDict);
     }
+    CFRetain(matchingDict);
 
-    IONotificationPortRef notificationPort = IONotificationPortCreate(kIOMainPortDefault);
-
+    const IONotificationPortRef notificationPort = IONotificationPortCreate(kIOMainPortDefault);
     if (notificationPort == NULL) {
+        free(matchingDict);
         printf("Failed to create IONotificationPortRef\n");
         exit(-3);
     }
 
-    CFRunLoopSourceRef runLoopSource = IONotificationPortGetRunLoopSource(notificationPort);
-
+    const CFRunLoopSourceRef runLoopSource = IONotificationPortGetRunLoopSource(notificationPort);
     if (runLoopSource == NULL) {
+        free(matchingDict);
+        free(notificationPort);
         printf("Failed to get CFRunLoopSourceRef\n");
         exit(-4);
     }
@@ -33,14 +45,25 @@ int detectUSB() {
                                           kIOTerminatedNotification, matchingDict,
                                           usbDeviceAdded, NULL, &usbAddedIter);
 
+    if (kr != kIOReturnSuccess) {
+        free(matchingDict);
+        free(notificationPort);
+        free(runLoopSource);
+        printf("Failed to get IOServiceAddMatchingNotification\n");
+        exit(-4);
+    }
+
     usbDeviceAdded(NULL, usbAddedIter);
+
+    trap(INTERRUPT, currentUSBSIGInterruptAction, sigintHandlerUSB);
+    trap(TERMINATION, currentUSBSIGTerminationAction, sigintHandlerUSB);
 
     CFRunLoopRun();
 
     return 0;
 }
 
-void usbDeviceAdded(void *refCon, io_iterator_t iterator) {
+void usbDeviceAdded(void *refCon, const io_iterator_t iterator) {
     while((usbDevice = IOIteratorNext(iterator))) {
         printf("Information:\n");
         io_name_t name;

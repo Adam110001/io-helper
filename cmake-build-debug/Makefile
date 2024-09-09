@@ -129,6 +129,30 @@ io-helper/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/io-helper.dir/build.make CMakeFiles/io-helper.dir/build
 .PHONY : io-helper/fast
 
+GeneralHelpers/Helpers.o: GeneralHelpers/Helpers.c.o
+.PHONY : GeneralHelpers/Helpers.o
+
+# target to build an object file
+GeneralHelpers/Helpers.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/io-helper.dir/build.make CMakeFiles/io-helper.dir/GeneralHelpers/Helpers.c.o
+.PHONY : GeneralHelpers/Helpers.c.o
+
+GeneralHelpers/Helpers.i: GeneralHelpers/Helpers.c.i
+.PHONY : GeneralHelpers/Helpers.i
+
+# target to preprocess a source file
+GeneralHelpers/Helpers.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/io-helper.dir/build.make CMakeFiles/io-helper.dir/GeneralHelpers/Helpers.c.i
+.PHONY : GeneralHelpers/Helpers.c.i
+
+GeneralHelpers/Helpers.s: GeneralHelpers/Helpers.c.s
+.PHONY : GeneralHelpers/Helpers.s
+
+# target to generate assembly for a file
+GeneralHelpers/Helpers.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/io-helper.dir/build.make CMakeFiles/io-helper.dir/GeneralHelpers/Helpers.c.s
+.PHONY : GeneralHelpers/Helpers.c.s
+
 GeneralHelpers/Options.o: GeneralHelpers/Options.c.o
 .PHONY : GeneralHelpers/Options.o
 
@@ -234,6 +258,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... io-helper"
+	@echo "... GeneralHelpers/Helpers.o"
+	@echo "... GeneralHelpers/Helpers.i"
+	@echo "... GeneralHelpers/Helpers.s"
 	@echo "... GeneralHelpers/Options.o"
 	@echo "... GeneralHelpers/Options.i"
 	@echo "... GeneralHelpers/Options.s"

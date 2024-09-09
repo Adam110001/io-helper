@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/io-helper.dir/GeneralHelpers/Helpers.c.o"
+  "CMakeFiles/io-helper.dir/GeneralHelpers/Helpers.c.o.d"
   "CMakeFiles/io-helper.dir/GeneralHelpers/Options.c.o"
   "CMakeFiles/io-helper.dir/GeneralHelpers/Options.c.o.d"
   "CMakeFiles/io-helper.dir/GeneralHelpers/SignalHandlers.c.o"

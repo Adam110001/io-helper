@@ -4,7 +4,7 @@
 #include "USB/USBHandler.h"
 
 int main(const int argc, char * argv[]) {
-    int setUPSIGHandler = init();
+    const int setUPSIGHandler = initWithHandler();
     if (setUPSIGHandler != 0) {
         perror("sigaction");
         exit(EXIT_FAILURE);

@@ -12,7 +12,9 @@ add_executable(io-helper main.c
         GeneralHelpers/Options.c
         GeneralHelpers/Options.h
         GeneralHelpers/SignalHandlers.c
-        GeneralHelpers/SignalHandlers.h)
+        GeneralHelpers/SignalHandlers.h
+        GeneralHelpers/Helpers.c
+        GeneralHelpers/Helpers.h)
 
 target_link_libraries(
         io-helper

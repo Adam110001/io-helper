@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/adamdovciak/CLionProjects/io-helper/GeneralHelpers/Helpers.c">
+			<Option target="io-helper"/>
+		</Unit>
+		<Unit filename="/Users/adamdovciak/CLionProjects/io-helper/GeneralHelpers/Helpers.h">
+			<Option target="io-helper"/>
+		</Unit>
 		<Unit filename="/Users/adamdovciak/CLionProjects/io-helper/GeneralHelpers/Options.c">
 			<Option target="io-helper"/>
 		</Unit>
